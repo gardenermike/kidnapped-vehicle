@@ -28,16 +28,15 @@ struct Particle {
 class ParticleFilter {
 	
 	// Number of particles to draw
-	int num_particles; 
-	
-	
+	int num_particles;
 	
 	// Flag, if filter is initialized
 	bool is_initialized;
 	
 	// Vector of weights of all particles
 	std::vector<double> weights;
-	
+
+
 public:
 	
 	// Set of current particles
@@ -81,8 +80,8 @@ public:
 	void dataAssociation(std::vector<LandmarkObs> predicted, std::vector<LandmarkObs>& observations);
 	
 	/**
-	 * updateWeights Updates the weights for each particle based on the likelihood of the 
-	 *   observed measurements. 
+	 * updateWeights Updates the weights for each particle based on the likelihood of the
+	 *   observed measurements.
 	 * @param sensor_range Range [m] of sensor
 	 * @param std_landmark[] Array of dimension 2 [Landmark measurement uncertainty [x [m], y [m]]]
 	 * @param observations Vector of landmark observations

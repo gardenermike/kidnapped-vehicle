@@ -58,6 +58,14 @@ inline double dist(double x1, double y1, double x2, double y2) {
 	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 }
 
+/*
+ * Computes the multivariate gaussian distribution
+ * between a predicted and observed point
+ */
+inline double multivariate_gaussian(double sigma_x, double sigma_y, double x, double y, double mu_x, double mu_y) {
+  return (1. / (2. * M_PI * sigma_x * sigma_y)) * exp(-(pow(x - mu_x, 2) / (2 * pow(sigma_x, 2)) + (pow(y - mu_y, 2) / (2 * pow(sigma_y, 2)))));
+}
+
 inline double * getError(double gt_x, double gt_y, double gt_theta, double pf_x, double pf_y, double pf_theta) {
 	static double error[3];
 	error[0] = fabs(pf_x - gt_x);
